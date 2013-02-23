@@ -1,13 +1,14 @@
 #summary One-sentence summary of this page.
+#labels Commodity,Energy,Featured
 
 = Introduction =
 
-Add your content here.
+This is a project for the building of the Commodity and Energy spot market platform.
 
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Business Goal
+  * Render the data of C&E spot and future market.
+  * Render the statistic diagram and grid in one page.
+  * Provide the search ability.
