@@ -6,10 +6,10 @@ $(document).ready(function() {
                 type: 'line'
             },
             title: {
-                text: 'Spot and Future Gold Price Charts'
+                text: 'Gold Spot and Future Price Charts'
             },
             subtitle: {
-                text: 'Source: WorldClimate.com'
+                text: 'Source: ThomsonReuters.com'
             },
             xAxis: {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -21,10 +21,11 @@ $(document).ready(function() {
             },
             tooltip: {
                 enabled: true,
-                formatter: function() {
+                formatter: function(){ 
                     return '<b>'+ this.series.name +'</b><br/>'+
-                        this.x +': '+ this.y +'$';
-                }
+                        this.x +': '+ this.y +'$/oz';
+                },
+                crosshairs: [true, true]
             },
             plotOptions: {
                 line: {
