@@ -1,0 +1,14 @@
+#summary One-sentence summary of this page.
+#labels commodity,energy,Featured
+
+= Introduction =
+
+This is a project for the building of the Commodity and Energy spot market platform.
+
+
+= Details =
+
+Business Goal
+  * Render the data of C&E spot and future market.
+  * Render the statistic diagram and grid in one page.
+  * Provide the search ability.
