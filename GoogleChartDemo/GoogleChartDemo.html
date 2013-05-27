@@ -1,5 +1,11 @@
 <html>
   <head>
+	<style type="text/css">
+	.chart{
+		width: 800px;
+		height:600px;
+	}
+	</style>
 	<!--Load the AJAX API-->
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -21,7 +27,7 @@
         ]);
 
         var options = {
-          title: '黄金现货期货对比图',
+          title: '黄金现货期货价格对比图',
 		  pointSize: 4,
 		  hAxis: {
 			slantedText: true,
@@ -40,28 +46,81 @@
         chart.draw(data, options);
       }
 	  
-	     // Callback that creates and populates a data table, 
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawPieChart() {
+	function drawAreaChart() {
+        var data = google.visualization.arrayToDataTable([
+         ['Month', '现货', '期货'],
+          ['一月',  1507.0,      1503.9],
+          ['二月',  1506.9,      1504.2],
+          ['三月',  1509.5,      1505.7],
+          ['四月',  1510.5,      1508.5],
+		  ['五月',  1518.4,      1511.9],
+		  ['六月',  1521.5,      1515.2],
+		  ['七月',  1525.2,      1517.0],
+		  ['八月',  1526.5,      1516.6],
+		  ['九月',  1523.3,      1514.2],
+		  ['十月',  1518.3,      1510.3],
+		  ['十一月',  1513.9,      1506.6],
+		  ['十二月',  1509.6,      1504.8]	
+        ]);
+
+		var options = {
+          title: '黄金现货期货价格对比图',
+		  pointSize: 4,
+		  hAxis: {
+			slantedText: true,
+			slantedTextAngle: 45
+		  },
+		  vAxis: {
+			gridlines: {count: 7},
+			title: '金价（美元）'
+		  },
+		  
+		  trendlines: { 0: {} }    // Draw a trendline for data series 0.
+
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('area_chart_div'));
+        chart.draw(data, options);
+      }
+
+	function drawColumnChart(){
+		var data = google.visualization.arrayToDataTable([
+          ['年份季度', '矿山产量', '回收黄金废料', '生产者净套期保值', '隐含净减资'],
+          ['2012年一季度',  663,      386,		0,		32],
+          ['2012年二季度',  705,      394,		0,		0],
+          ['2012年三季度',  660,      441,		10,		0],
+          ['2013年四季度',  1030,     540,		0,		0]
+        ]);
+
+        var options = {
+          title: '供给季度细分市场',
+          hAxis: {title: '季度', titleTextStyle: {color: 'red'}}
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('column_chart_div'));
+        chart.draw(data, options);	
+	}	
+	  
+    function drawPieChart() {
 
       // Create the data table.
       var data = new google.visualization.DataTable();
       data.addColumn('string', 'Topping');
       data.addColumn('number', 'Slices');
       data.addRows([
-        ['Mushrooms', 3],
-        ['Onions', 1],
-        ['Olives', 1], 
-        ['Zucchini', 1],
-        ['Pepperoni', 2]
+        ['首饰业', 721],
+        ['金条投资', 998],
+        ['官方部门采购', 532], 
+        ['生产者净解除套期保值', 40],
+        ['隐含净投资', 294],
+		['其他', 721]
       ]);
 
       // Set chart options
-      var options = {'title':'How Much Pizza I Ate Last Night',
-                     'width':800,
-                     'height':600};
-
+	  var options = {
+          title: '2012年黄金需求情况'
+        };
+      
       // Instantiate and draw our chart, passing in some options.
       var chart = new google.visualization.PieChart(document.getElementById('pic_chart_div'));
       chart.draw(data, options);
@@ -70,9 +129,10 @@
   //------------------------------------------------------
 	function drawCharts(){
 		drawLineChart();
-		//drawPieChart();
-
-	}
+		drawPieChart();
+		drawColumnChart();
+		drawAreaChart();
+		}
 
   // Load the Visualization API and the piechart package.
   google.load('visualization', '1.0', {'packages':['corechart'], 'language': 'zh-cn'});
@@ -87,7 +147,10 @@
 
   <body>
 <!--Div that will hold the pie chart-->
-	<div id="line_chart_div" style="width:800; height:600"></div>
-    <div id="pic_chart_div" style="width:800; height:600"></div>
+	<div id="line_chart_div" class="chart"></div>
+	<div id="pic_chart_div" class="chart"></div>
+	<div id="column_chart_div" class="chart"></div>
+	<div id="area_chart_div" class="chart"></div>
+    
   </body>
 </html>
