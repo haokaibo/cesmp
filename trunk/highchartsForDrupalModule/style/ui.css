@@ -1,0 +1,18 @@
+/* for 700px or less */
+@media screen and (max-width: 700px)
+{
+    #chartContent
+    {
+        width: auto;
+        float: none;
+    }
+}
+
+/* border & guideline (you can ignore these) */
+#chartContent
+{
+    background: #f8f8f8;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: solid 1px #ccc;
+}
