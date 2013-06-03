@@ -1,15 +1,18 @@
 // Kaibo(20130602): Created gold requirement pic chart.
-$(document).ready(function () {
+function drawGoldRequirementChart(containerId) {
     var chart = new Highcharts.Chart({
     // Build the chart
           chart: {
-              renderTo: 'containerPieChart',
+              renderTo: containerId,
               plotBackgroundColor: null,
               plotBorderWidth: null,
               plotShadow: true
           },
           title: {
-              text: '2012年黄金需求情况'
+              text: '2012年黄金需求'
+          },
+		  subtitle: {
+                text: '来源: ThomsonReuters.com'
           },
           tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage}%</b>',
@@ -44,4 +47,4 @@ $(document).ready(function () {
               ]
           }]
       });
-  });
+  }

@@ -1,16 +1,18 @@
 // Kaibo(20130602): Created gold supplyment column chart.
-$(function($){
-
+function drawGoldSupplymentChart(containerId){
 var chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'containerColumnChart',
+                renderTo: containerId,
                 type: 'column'
             },
             title: {
-                text: '2012黄金供给季度细分市场供给'
+                text: '2012年黄金季度细分市场供给'
+            },
+			subtitle: {
+                text: '来源: ThomsonReuters.com'
             },
             xAxis: {
-                categories: ['2012年一季度', '2012年二季度', '2012年三季度', '2012年四季度']
+                categories: ['一季度', '二季度', '三季度', '四季度']
             },
             yAxis: {
                 min: 0,
@@ -67,4 +69,4 @@ var chart = new Highcharts.Chart({
                 data: [1030, 540, 0, 0]
             }]
         });
-});
+}
