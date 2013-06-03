@@ -1,12 +1,12 @@
 /* Gold price chart */
-$(document).ready(function() {
+function drawGoldPriceChart(containerId) {
        var chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'container',
+                renderTo: containerId,
                 type: 'line'
             },
             title: {
-                text: '2012年黄金现货期货价格对比图'
+                text: '2012年黄金现货期货价格对比'
             },
             subtitle: {
                 text: '来源: ThomsonReuters.com'
@@ -43,4 +43,4 @@ $(document).ready(function() {
                 data: [1503.9, 1504.2, 1505.7, 1508.5, 1511.9, 1515.2, 1517.0, 1516.6, 1514.2, 1510.3, 1506.6, 1504.8]
             }]
         });
-});
+}
