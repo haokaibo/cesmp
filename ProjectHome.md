@@ -1,0 +1,1 @@
+This is a project for the building of the Commodity and Energy spot market platform.
